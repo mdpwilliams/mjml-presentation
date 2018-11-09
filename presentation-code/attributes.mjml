@@ -1,0 +1,45 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-body background-color="#5390B2" />
+
+      <mj-class name="rounded-corners" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+
+    <mj-spacer height="20px" />
+
+    <mj-section
+      mj-class="rounded-corners"
+      padding="0 0 30px"
+      background-color="#FFFFFF">
+      <mj-column>
+        <mj-image
+          padding="0"
+          border-radius="4px 4px 0 0"
+          src="https://source.unsplash.com/random/600x300" />
+
+        <mj-text
+          font-size="18px"
+          line-height="27px"
+          color="#333333">
+          <h3>Grocery is hitting a new high point!</h3>
+          <p>Join us in a ground breaking discovery in the ever-moving grocery marketplace. With the advancement of Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quasi corrupti error. Necessitatibus adipisci quisquam ut ipsam libero. Facilis ab error recusandae iste ex non aliquid voluptates facere omnis sit.</p>
+          <p>Please join Mark, Kelly and Sylvain as they review their recent trip to Vegas and go over some of the recent reveals from R&amp;D.</p>
+        </mj-text>
+
+        <mj-button
+          border="4px solid #5390B2"
+          background-color="#FFFFFF"
+          font-weight="700"
+          font-size="28px"
+          color="#5390B2">
+          Listen to the podcast here
+        </mj-button>
+      </mj-column>
+    </mj-section>
+
+    <mj-spacer height="20px" />
+  </mj-body>
+</mjml>

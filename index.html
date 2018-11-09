@@ -24,8 +24,415 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+        <section>
+          <h1>MJML and Email Templates</h1>
+          <p><small>by Mitchell Williams</small></p>
+        </section>
+
+				<section>
+          <section>
+            <h3>Tooling Time!</h3>
+
+            <aside class="notes">
+              <p>Thinkgs you need:</p>
+              <ul>
+                <li>an editor</li>
+                <li>node and npm</li>
+                <li>MJML installed? Preferably globally?</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <p>If you just want to jump in without the tooling:</p>
+            <a href="https://mjml.io/try-it-live">https://mjml.io/try-it-live</a>
+          </section>
+
+          <section>
+            <h3>An Editor</h3>
+            <ul>
+              <li><a href="https://atom.io/" target="_blank">Atom</a></li>
+              <li><a href="https://code.visualstudio.com/" target="_blank">VSCode</a></li>
+              <li><a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a></li>
+              <li>insert your favourite here.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>node</code> and <code>npm</code></h3>
+            <h4>Install Brew</h4>
+            <p><a href="https://brew.sh" target="_blank">https://brew.sh</a></p>
+            <h4>Install Node</h4>
+            <pre><code class="bash">brew install node</code></pre>
+
+            <aside class="notes">
+              command to install brew straight from terminal:
+                /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            </aside>
+          </section>
+
+          <section>
+            <h3>And finally <code>MJML</code>!</h3>
+            <p>Now there are two ways to install MJML...</p>
+            <p>Locally: </p>
+            <pre><code class="bash">npm install --save-dev mjml</code></pre>
+            <p>Globally: </p>
+            <pre><code class="bash">npm install -g mjml</code></pre>
+
+            <aside class="notes">
+              <ul>
+                <li>Locally is beneficial when you need to stick to a specific version</li>
+                <li>Globally is beneficial if you need to do one off quick templates</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+
+        <section data-background="https://media.giphy.com/media/xonOzxf2M8hNu/giphy.gif">
+          <h3>Ready to get started???</h3>
+        </section>
+
+        <section>
+          <h2>What Is MJML?</h2>
+
+          <aside class="notes">
+            <ul>
+              <li>MJML stands for MailJet Markup Language.</li>
+              <li>MJML compiles down to HTML. HTML that is specifically designed to look the same on a wide variety of email clients.</li>
+              <li>Is responsive first, so we can design one email and have it look good on different devices.</li>
+              <li>Much like how the web has multiple browsers, there are a plethora of email clients that all interpret HTML in their own way.</li>
+              <li>Used by companies like Discord, Mailjet and Typeform</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <p>In short...</p>
+          <ul>
+            <li>MJML compiles down to clean HTML.</li>
+            <li>Is responsive first, so we can design one email and have it look good on different devices.</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h3>Coding Time!</h3>
+          </section>
+
+          <section>
+            <p>Let's create a new file. I've named mine index.mjml</p>
+            <p>Within it, add this:</p>
+            <pre><code class="html">
+              <mjml>
+                <mj-head></mj-head>
+                <mj-body></mj-body>
+              </mjml>
+            </code></pre>
+
+            <aside class="notes">
+              <ul>
+                <li><code>mjml</code> tag is required by a base file.</li>
+                <li>Similarly to HTML there is a head and a body</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h3>Using the MJML CLI</h3>
+            <pre><code>mjml index.mjml -o build/index.html</code></pre>
+            <p>This is letting MJML take an input file and then compiling it to html in our build directory.</p>
+
+            <aside class="notes">
+              <ul>
+                <li>"-o" for "output"</li>
+                <li>MJML is really nice and lints some of the errors we have. `mj-text` within an `mj-section` without an `mj-column`</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section data-background="https://media.giphy.com/media/3ov9jIoFd00talgv72/giphy.gif">
+            <div style="background: hsla(0, 0%, 50%, 0.8)">
+              <p>You could do that a couple thousand time a day and get really good at stopping and restarting a process or...</p>
+            </div>
+          </section>
+
+          <section>
+            <pre><code>mjml -w index.mjml -o build/index.html</code></pre>
+            <p>The <code>-w</code> argument will watch the input file for changes</p>
+
+            <aside class="notes">
+              <ul>
+                <li>"-w" for "watch"</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section data-background="https://media.giphy.com/media/vjyl3YVgcLiWA/giphy.gif">
+            <div style="background-color: hsla(0, 0%, 50%, 0.8)">
+              <p>Want to blow your mind?</p>
+              <p>Open the compiled HTML file.</p>
+            </div>
+
+            <aside class="notes">
+              Four lines of code produces 62 lines of prep for all the different email clients.
+            </aside>
+          </section>
+
+          <section>
+            <p>There are so many more MJML tags that we can use!</p>
+            <p>Each with their own attributes for customization.</p>
+          </section>
+
+          <section>
+            <h3>Layout Components</h3>
+            <ul style="columns: 2">
+              <li>mj-section</li>
+              <li>mj-column</li>
+              <li>mj-wrapper</li>
+              <li>mj-group</li>
+              <li>mj-spacer</li>
+              <li>mj-divider</li>
+              <li>mj-table</li>
+            </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>All tags that help the layout and look of an email</li>
+                <li>They do calculations based on their attributes during compilation that affect their looks</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h3>Function Components</h3>
+            <ul style="columns: 2">
+              <li>mj-raw</li>
+              <li>mj-hero</li>
+              <li>mj-image</li>
+              <li>mj-button</li>
+              <li>mj-accordian</li>
+              <li>mj-carousel</li>
+              <li>mj-text</li>
+              <li>mj-social</li>
+            </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>These tags all have a function</li>
+                <li>they must exist within an mj-column otherwise MJML will complain</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section data-background="https://media.giphy.com/media/26ufmoIppv9yivWXC/giphy.gif">
+            <h2 style="background-color: hsla(0, 0%, 50%, 0.8)">Let's Add some content to the email</h2>
+          </section>
+
+          <section>
+            <p>The code within the body often tends to follow a pattern similar to this:</p>
+            <pre><code class="html">
+              &lt;mj-section&gt;
+                &lt;mj-column&gt;
+                  ...this is our content...
+                &lt;/mj-column&gt;
+              &lt;/mj-section&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <p>Let's add some tags: </p>
+            <ul>
+              <li>mj-image</li>
+              <li>mj-text</li>
+              <li>mj-button</li>
+            </ul>
+            <p>Along with some copy</p>
+
+            <aside class="notes">
+              <ul>
+                <li>mj-image is self-closing, and acts similarly to the image tag</li>
+                <li>mj-text, allows us to use any html tag, personally I try and limit this to text elements so that I can avoid styling issues</li>
+                <li>mj-button, creates a button</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <img data-src="assets/tags.png" width="550" alt="">
+            <p>Nailed it.</p>
+            <p>Job done.</p>
+          </section>
+
+          <section data-background="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+            <h3>No, of course not. Needs some panache.</h3>
+          </section>
+
+          <section>
+            <p>Just like HTML, MJML tags take attributes.</p>
+            <p>Each tag has a different set of attributes, and they can all be located within the documentation.</p>
+            <p><a href="https://mjml.io/documentation" target="_blank">mjml.io/documentation</a></p>
+          </section>
+
+          <section>
+            <h3>Could this lead to problems?</h3>
+            <ul>
+              <li>Long files</li>
+              <li>Repeated Code</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Advanced Concepts</h3>
+            <ul>
+              <li>mj-include</li>
+              <li>mj-attributes</li>
+              <li>mj-class</li>
+            </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>
+                  mj-include allows the importing of other snippets of MJML to help keep files as singletons, and reduce repetition
+                  <ul>
+                    <li>Limited to things within mj-section or within an mj-body</li>
+                  </ul>
+                </li>
+                <li>mj-attributes, gives you the ability to set attributes on a tag wide basis</li>
+                <li>mj-class allows you to create a class of a set of attributes that can be applied to a tag which is then adopted by the tag</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h3>Super-Duper Advanced Concepts</h3>
+          </section>
+
+          <section>
+            <h4>Custom Component Creation</h4>
+            <p>MJML allows you to use React to create new components it can parse.</p>
+            <p>It's a little more intensive, and I haven't had the opportunity to use them in a day-to-day</p>
+            <p>If you're interested in looking into it in-depth, <a href="https://medium.com/mjml-making-responsive-email-easy/tutorial-creating-your-own-component-with-mjml-4-1c0e84e97b36" target="_blank">check out this article</a>.</p>
+          </section>
+        </section>
+
+        <section>
+          <h3>What is Litmus?</h3>
+        </section>
+
+        <section>
+          <section>
+            <p><a href="https://litmus.com">Litmus</a> is a testing suite that sends your email to multiple email clients.</p>
+            <p>You get sent back a screen shot of the image so you can see how it compares all the multitude of email clients.</p>
+
+            <aside class="notes">
+              <p>Testing live: <a href="https://litmus.com/builder/projects?create-project-modal=true">Paste project code</a></p>
+            </aside>
+          </section>
+
+          <section>
+            <img height="600px" src="assets/litmus.png" alt="">
+          </section>
+        </section>
+
+        <section>
+          <h3>What Is Handlebars?</h3>
+
+          <aside class="notes">
+            <p>Right now, our templates are dumb</p>
+            <p>input -> processed -> output</p>
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <p>Handlebars adds logic and loops to our templates</p>
+          </section>
+
+          <section>
+            <h4>Out of the box, Handlebars isn't very smart.</h4>
+            <p>Conditional logic is limited to the existence of a variable rather than looking at the value.</p>
+            <pre><code class="handlebars">{{#if order.id}}</code></pre>
+            <p> rather than </p>
+            <pre><code class="handlebars">{{#if order.id.length &gt; 5}}</code></pre>
+          </section>
+
+          <section>
+            <p>We can modify Handlebars with helpers to create new functions</p>
+            <p>Mandrill makes use of this to give us solve the conditional logic issue</p>
+            <pre><code class="handlebars" data-trim>
+{{#if order.status}}
+            </code></pre>
+            <p>becomes</p>
+            <pre><code class="handlebars" data-trim>
+{{#if `order.id == 2`}}
+            </code></pre>
+          </section>
+        </section>
+
+        <section data-background="https://media.giphy.com/media/xTka03MBiynp0rvSrC/giphy.gif">
+          <h2>Wrapping it all together</h2>
+        </section>
+
+        <section>
+          <section>
+            <h3>Current issue is all of these elements don't really play well together.</h3>
+          </section>
+
+          <section>
+            <ol>
+              <li>Styling requires very specific data.</li>
+              <li>Production requires a very abstracted template</li>
+              <li>Handlebars requires an object</li>
+            </ol>
+
+            <aside class="notes">
+              <ul>
+                <li>If we want to style an email template based on a design, we really don't want handlebars getting in the way</li>
+                <li>Production wants all of the handlebars to account for all the possibilities</li>
+                <li>Where do we get this object? How can we test against it.</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <p>The unfortunate answer is there is no succinct solution.</p>
+            <p>Currently, Mercatus is using a gulp build system to run both MJML and Handlebars on the templates</p>
+
+            <aside class="notes">
+              <p>This build system uses a custom helper to replicate the logic in Mandrill's helper</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="https://media.giphy.com/media/VStxBrCyssRPO/giphy.gif">
+            <h3>Q &amp; A</h3>
+          </section>
+
+          <section>
+            <p>What are some crazy email pitfalls that you've encountered?</p>
+
+            <aside class="notes">
+              <ul>
+                <li>Mandrill logic demands strings in double-quotes rather than single quotes</li>
+                <li>Border and border-radius don't play well with on another</li>
+                <li>Background images are the bane of everything ever at all times, so avoid these because they don't have a great amount of support.</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <p>What's next for the email templates?</p>
+
+            <aside class="notes">
+              <p>Looks like we're trying to create a default set of templates where a portion of the styling is passed along with the email object and we can reuse one template across multiple.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section data-background="https://media.giphy.com/media/a0Lgc1JvbfS4o/giphy.gif">
+          <h3>Thanks for joining me!</h3>
+        </section>
 			</div>
 		</div>
 

@@ -1,0 +1,18 @@
+<mjml>
+  <mj-head></mj-head>
+  <mj-body>
+    <mj-section>
+      <mj-column>
+        <mj-image src="https://source.unsplash.com/random/600x300" />
+
+        <mj-text>
+          <h3>Grocery is hitting a new high point!</h3>
+          <p>Join us in a ground breaking discovery in the ever-moving grocery marketplace. With the advancement of Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quasi corrupti error. Necessitatibus adipisci quisquam ut ipsam libero. Facilis ab error recusandae iste ex non aliquid voluptates facere omnis sit.</p>
+          <p>Please join Mark, Kelly and Sylvain as they review their recent trip to Vegas and go over some of the recent reveals from R&amp;D.</p>
+        </mj-text>
+
+        <mj-button>Listen to the podcast here</mj-button>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
